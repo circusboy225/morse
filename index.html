@@ -15,13 +15,15 @@
 </head>
 <body>
     <img id="megaphone" src="https://raw.githubusercontent.com/circusboy225/morse/main/megaphone.png" alt="Megaphone" />
-    <audio id="morseSound" src="https://raw.githubusercontent.com/circusboy225/morse/main/morsecode_iaqgaqhga9g4n1h5iai7m2vqoa.mp3" loop></audio>
+    <audio id="morseSound" src="https://raw.githubusercontent.com/circusboy225/morse/main/morsecode_iaqgaqhga9g4n1h5iai7m2vqoa.wav" loop preload="auto"></audio>
     <script>
         const megaphone = document.getElementById('megaphone');
         const morseSound = document.getElementById('morseSound');
 
         megaphone.addEventListener('click', () => {
-            morseSound.play();
+            if (morseSound.paused) {
+                morseSound.play();
+            }
             startTilting();
         });
 
