@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morse Code Sound</title>
+    <style>
+        #megaphone {
+            width: 150px;
+            height: 150px;
+            transition: transform 0.5s ease;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <img id="megaphone" src="https://raw.githubusercontent.com/circusboy225/morse/main/megaphone.png" alt="Megaphone" />
+    <audio id="morseSound" src="https://raw.githubusercontent.com/circusboy225/morse/main/morsecode_iaqgaqhga9g4n1h5iai7m2vqoa.mp3" loop></audio>
+    <script>
+        const megaphone = document.getElementById('megaphone');
+        const morseSound = document.getElementById('morseSound');
+
+        megaphone.addEventListener('click', () => {
+            morseSound.play();
+            startTilting();
+        });
+
+        function startTilting() {
+            let tiltDirection = 1;
+            setInterval(() => {
+                let currentTilt = tiltDirection * 10;
+                megaphone.style.transform = `rotate(${currentTilt}deg)`;
+                tiltDirection *= -1;
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
